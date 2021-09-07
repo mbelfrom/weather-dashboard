@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- CSS only -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <header>
+      <h1 class="text-center bg-dark text-white p-4">Weather Dashboard</h1>
+    </header>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3">
+          <form id="search-weather" class="border-bottom pb-3">
+            <div class="mb-3">
+              <label for="city-name" class="form-label">City Name</label>
+              <input
+                type="text"
+                class="form-control"
+                id="city-name"
+                placeholder="Temecula"
+                value="Temecula"
+              />
+            </div>
+            <button type="submit" class="btn btn-primary">Search</button>
+          </form>
+          <div id="recent-searches" class="mt-2">
+            <button class="btn btn-secondary w-100 mb-2">Temecula</button>
+            <button class="btn btn-secondary w-100">Phoenix</button>
+          </div>
+        </div>
+        <!-- End Left Column -->
+        <div class="col-md-9">Weather Details</div>
+      </div>
+    </div>
+​
+    <script>
+      const form = document.querySelector("#search-weather");
+      const recentSearches = document.querySelector("#recent-searches");
+​
+      const api_key = "2083ba99e548234fc6955819000762a8";
+      // Geo code endpoint
+      // http://api.openweathermap.org/geo/1.0/direct?q={city name},{state code},{country code}&limit={limit}&appid={API key}
+      
+      // One call endpoint
+      // https://api.openweathermap.org/data/2.5/onecall?lat={lat}&lon={lon}&exclude={part}&appid={API key}
+      
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        // Retrieve the city name from the input#city-name element
+        // and we trim off any extra whitespace
+        const city = document.querySelector("input#city-name").value.trim();
+​
+        // Fetch weather data
+        // Where are we going to source our data
+        // What does the api need to find our city
+        // populate our weather details
+      });
+​
+      recentSearches.addEventListener("click", function (e) {
+        const target = e.target;
+        if (!target.matches("button")) return;
+        // Retrieve the city name from the button.textContent
+        // Fetch weather data
+        // populate our weather details
+      });
+​
+      // window.navigator.geolocation.getCurrentPosition(function (geoData) {
+      //   console.log(geoData);
+      // });
+    </script>
+  </body>
+</html>
